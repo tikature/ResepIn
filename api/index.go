@@ -418,6 +418,8 @@ func serveStatic(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "image/png")
 	} else if strings.HasSuffix(path, ".jpg") || strings.HasSuffix(path, ".jpeg") {
 		w.Header().Set("Content-Type", "image/jpeg")
+	} else if strings.HasSuffix(path, ".svg") {
+		w.Header().Set("Content-Type", "image/svg+xml")
 	}
 	
 	w.Write(content)

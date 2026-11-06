@@ -17,7 +17,7 @@
         <div class="recipe-header">
             <h1>{{.Nama}}</h1>
             <img src="{{.Gambar}}" alt="{{.Nama}}" class="recipe-hero-image"
-                onerror="this.src='/static/images/placeholder.jpg'">
+                onerror="this.onerror=null;this.src='/static/images/placeholder.svg'">
             <p class="recipe-hero-description">{{.Deskripsi}}</p>
             <div class="tags">
                 {{range .Tag}}
