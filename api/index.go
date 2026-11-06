@@ -399,6 +399,11 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 func serveStatic(w http.ResponseWriter, r *http.Request) {
 	// Remove leading slash
 	path := strings.TrimPrefix(r.URL.Path, "/")
+
+	// Older pages may still request the JPEG placeholder; serve the bundled SVG instead.
+	if path == "images/placeholder.jpg" || path == "static/images/placeholder.jpg" {
+		path = "images/placeholder.svg"
+	}
 	
 	// Add public prefix
 	filePath := "public/" + path
